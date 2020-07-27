@@ -1,10 +1,8 @@
 cnt = 0
 def merge(A, l, mid, r):
     global cnt
-    n1 = mid - l
-    n2 = r - mid
-    L = [A[l+i] for i in range(n1)]
-    R = [A[mid+i] for i in range(n2)]
+    L = A[l:mid]
+    R = A[mid:r]
     L.append(1000000001)
     R.append(1000000001)
     i = 0
@@ -28,11 +26,10 @@ def mergeSort(A, l, r):
 
 def m():
     global cnt
-    input()
+    n = int(input())
     *A, = map(int, input().split())
     l = 0
-    r = len(A)
-    mergeSort(A, l, r)
+    mergeSort(A, l, n)
     print(' '.join(map(str, A)))
     print(cnt)
 
